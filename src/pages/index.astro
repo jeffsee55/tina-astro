@@ -1,0 +1,12 @@
+---
+import { client } from '../../.tina/__generated__/client'
+import { MyComponent } from '../components/react'
+const response = await client.queries.post({relativePath: "hello-world.md"})
+---
+
+<main>
+	<!-- No way for visual editing to work with .astro components -->
+	<pre  style={{margin: '100px auto', width: '1000px'}}>{JSON.stringify(response.data.post.body, null, 2)}</pre>
+	<!-- Uncomment React version to see Tina working -->
+	<!-- <MyComponent client:load {...response} /> -->
+</main>
